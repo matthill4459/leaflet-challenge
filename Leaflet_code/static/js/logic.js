@@ -14,14 +14,14 @@ let link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.g
 function fetchEarthquakeData() {
     d3.json(link)
         .then(data => {
-        clearMap();
+          console.log(data)
       // Loop through the earthquake data and create markers
         data.features.forEach(feature => {
             let coords = feature.geometry.coordinates;
             let mag = feature.properties.mag;
             let depth = coords[2];
             let place = feature.properties.place;
-        //console.log("Latitude:", coords[1], "Longitude:", coords[0]);
+            //console.log("Latitude:", coords[1], "Longitude:", coords[0]);
         // Define marker size based on earthquake magnitude
             let markerSize = Math.sqrt(mag) * 5;
       
